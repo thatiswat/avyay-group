@@ -1,11 +1,14 @@
 
-/* AVYAY FOOD & HOSPITALITY */
+/* ========================================
+   AVYAY FOOD & HOSPITALITY
+======================================== */
 
 :root {
   --cream: #f6efe5;
   --maroon: #651321;
   --gold: #bd9250;
   --text: #351018;
+  --muted: #756b63;
 }
 
 * {
@@ -37,11 +40,14 @@ h1, h2, h3 {
   font-family: "Playfair Display", Georgia, serif;
 }
 
-h1 em, h2 em {
+h1 em,
+h2 em {
   color: var(--gold);
 }
 
-/* HEADER */
+/* ========================================
+   HEADER
+======================================== */
 
 .site-header {
   display: flex;
@@ -78,13 +84,16 @@ h1 em, h2 em {
 
 .site-nav a {
   font-size: 13px;
+  transition: color 0.2s ease;
 }
 
 .site-nav a:hover {
   color: var(--gold);
 }
 
-/* COMMON SECTIONS */
+/* ========================================
+   COMMON SECTIONS
+======================================== */
 
 section {
   padding: 85px 6%;
@@ -114,37 +123,63 @@ p {
   padding: 15px 25px;
   margin-top: 20px;
   font-size: 13px;
+  transition: background 0.2s ease;
 }
 
-/* HERO */
+.main-button:hover {
+  background: #47101c;
+}
+
+/* ========================================
+   HERO
+======================================== */
 
 .hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  min-height: 680px;
+  display: flex;
   align-items: center;
-  gap: 50px;
-  min-height: 600px;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 6%;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.hero-content .eyebrow {
+  margin-bottom: 30px;
 }
 
 .hero h1 {
-  font-size: clamp(42px, 5vw, 72px);
+  font-size: clamp(42px, 5.5vw, 76px);
   font-weight: 500;
   line-height: 1.15;
-  margin: 25px 0;
+  letter-spacing: -1.5px;
+  margin: 20px 0 28px;
+}
+
+.hero h1 em {
+  font-weight: 400;
 }
 
 .hero-content p:not(.eyebrow) {
-  max-width: 520px;
-  color: #756b63;
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.9;
 }
 
-.hero-image img {
-  width: 100%;
-  max-height: 500px;
-  object-fit: contain;
+.hero-content .main-button {
+  margin-top: 32px;
 }
 
-/* ABOUT */
+/* ========================================
+   ABOUT
+======================================== */
 
 .about {
   background: #ebe0d0;
@@ -154,10 +189,12 @@ p {
 .about > p:last-child {
   max-width: 750px;
   margin: auto;
-  color: #756b63;
+  color: var(--muted);
 }
 
-/* BRANDS */
+/* ========================================
+   BRANDS
+======================================== */
 
 .brands {
   text-align: center;
@@ -166,7 +203,7 @@ p {
 .section-description {
   max-width: 600px;
   margin: 0 auto 40px;
-  color: #756b63;
+  color: var(--muted);
 }
 
 .brand-grid {
@@ -199,11 +236,13 @@ p {
 
 .brand-info p {
   margin: 0;
-  color: #756b63;
+  color: var(--muted);
   font-size: 13px;
 }
 
-/* SERVICES */
+/* ========================================
+   SERVICES
+======================================== */
 
 .services {
   background: var(--maroon);
@@ -233,41 +272,9 @@ p {
   font-size: 13px;
 }
 
-/* PHILOSOPHY */
-
-.philosophy {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 60px;
-}
-
-.philosophy-image img {
-  width: 100%;
-}
-
-.philosophy-content p:not(.eyebrow) {
-  color: #756b63;
-}
-
-.philosophy-content ul {
-  padding-left: 20px;
-  line-height: 2.4;
-}
-
-/* PARTNERSHIPS */
-
-.partnerships {
-  background: #ebe0d0;
-  text-align: center;
-}
-
-.partnerships > p:not(.eyebrow) {
-  max-width: 650px;
-  margin: auto;
-}
-
-/* CONTACT */
+/* ========================================
+   CONTACT
+======================================== */
 
 .contact {
   background: #101c29;
@@ -291,7 +298,13 @@ p {
   color: #e4e0dc;
 }
 
-/* FOOTER */
+.contact-grid a:hover {
+  color: #e0bd80;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
 
 .footer {
   padding: 35px 6%;
@@ -310,18 +323,17 @@ p {
   font-size: 9px;
 }
 
-.footer p, .footer small {
+.footer p,
+.footer small {
   font-size: 11px;
-  color: #756b63;
+  color: var(--muted);
 }
 
-/* TABLET */
+/* ========================================
+   TABLET
+======================================== */
 
 @media (max-width: 950px) {
-  .hero,
-  .philosophy {
-    grid-template-columns: 1fr;
-  }
 
   .service-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -334,11 +346,15 @@ p {
   .site-nav {
     gap: 15px;
   }
+
 }
 
-/* MOBILE */
+/* ========================================
+   MOBILE
+======================================== */
 
 @media (max-width: 700px) {
+
   .site-header {
     flex-direction: column;
     gap: 12px;
@@ -365,12 +381,22 @@ p {
   }
 
   .hero {
-    min-height: auto;
-    gap: 25px;
+    min-height: 580px;
+    padding: 75px 22px;
   }
 
   .hero h1 {
-    font-size: 42px;
+    font-size: clamp(38px, 9vw, 48px);
+    letter-spacing: -1px;
+    line-height: 1.2;
+  }
+
+  .hero-content .eyebrow {
+    font-size: 10px;
+  }
+
+  .hero-content p:not(.eyebrow) {
+    font-size: 14px;
   }
 
   .brand-grid,
@@ -383,12 +409,9 @@ p {
     height: 250px;
   }
 
-  .philosophy {
-    gap: 25px;
-  }
-
   .footer {
     flex-direction: column;
     text-align: center;
   }
+
 }
