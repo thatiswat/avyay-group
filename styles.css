@@ -9,6 +9,7 @@
   --gold: #bd9250;
   --text: #351018;
   --muted: #756b63;
+  --light: #fffaf3;
 }
 
 * {
@@ -17,6 +18,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 25px;
 }
 
 body {
@@ -36,7 +38,9 @@ a {
   text-decoration: none;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: "Playfair Display", Georgia, serif;
 }
 
@@ -44,6 +48,11 @@ h1 em,
 h2 em {
   color: var(--gold);
 }
+
+p {
+  line-height: 1.8;
+}
+
 
 /* ========================================
    HEADER
@@ -62,6 +71,7 @@ h2 em {
   display: flex;
   align-items: center;
   gap: 14px;
+  flex-shrink: 0;
 }
 
 .logo img {
@@ -79,7 +89,8 @@ h2 em {
 
 .site-nav {
   display: flex;
-  gap: 30px;
+  align-items: center;
+  gap: 26px;
 }
 
 .site-nav a {
@@ -90,6 +101,7 @@ h2 em {
 .site-nav a:hover {
   color: var(--gold);
 }
+
 
 /* ========================================
    COMMON SECTIONS
@@ -112,10 +124,6 @@ h2 {
   margin: 15px 0 25px;
 }
 
-p {
-  line-height: 1.8;
-}
-
 .main-button {
   display: inline-block;
   background: var(--maroon);
@@ -129,6 +137,7 @@ p {
 .main-button:hover {
   background: #47101c;
 }
+
 
 /* ========================================
    HERO
@@ -177,6 +186,7 @@ p {
   margin-top: 32px;
 }
 
+
 /* ========================================
    ABOUT
 ======================================== */
@@ -191,6 +201,7 @@ p {
   margin: auto;
   color: var(--muted);
 }
+
 
 /* ========================================
    BRANDS
@@ -215,8 +226,13 @@ p {
 }
 
 .brand-card {
-  background: #fffaf3;
+  background: var(--light);
   overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.brand-card:hover {
+  transform: translateY(-5px);
 }
 
 .brand-card img {
@@ -240,8 +256,78 @@ p {
   font-size: 13px;
 }
 
+
 /* ========================================
-   SERVICES
+   EVENTS & EXPERIENCES
+======================================== */
+
+.events {
+  background: #ebe0d0;
+  text-align: center;
+}
+
+.events > h2 {
+  margin-bottom: 20px;
+}
+
+.events > p:not(.eyebrow) {
+  max-width: 650px;
+  margin: 0 auto 45px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.event-card {
+  background: var(--light);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px #35101814;
+}
+
+.event-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.event-card:hover img {
+  transform: scale(1.04);
+}
+
+.event-info {
+  padding: 20px;
+}
+
+.event-info h3 {
+  font-size: 21px;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+
+.event-info p {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0;
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   OPERATIONS
 ======================================== */
 
 .services {
@@ -261,6 +347,11 @@ p {
   padding: 25px;
   border: 1px solid #ffffff40;
   text-align: left;
+  transition: background 0.3s ease;
+}
+
+.service-grid article:hover {
+  background: #ffffff0d;
 }
 
 .service-grid h3 {
@@ -271,6 +362,7 @@ p {
   color: #e1cfcf;
   font-size: 13px;
 }
+
 
 /* ========================================
    CONTACT
@@ -302,6 +394,7 @@ p {
   color: #e0bd80;
 }
 
+
 /* ========================================
    FOOTER
 ======================================== */
@@ -329,25 +422,35 @@ p {
   color: var(--muted);
 }
 
+
 /* ========================================
    TABLET
 ======================================== */
 
 @media (max-width: 950px) {
 
-  .service-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .brand-grid {
-    gap: 15px;
+  .site-header {
+    flex-wrap: wrap;
   }
 
   .site-nav {
     gap: 15px;
   }
 
+  .brand-grid {
+    gap: 15px;
+  }
+
+  .event-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
 }
+
 
 /* ========================================
    MOBILE
@@ -401,7 +504,8 @@ p {
 
   .brand-grid,
   .service-grid,
-  .contact-grid {
+  .contact-grid,
+  .event-grid {
     grid-template-columns: 1fr;
   }
 
@@ -409,9 +513,37 @@ p {
     height: 250px;
   }
 
+  .event-card img {
+    height: 240px;
+  }
+
+  .event-info {
+    padding: 18px;
+  }
+
   .footer {
     flex-direction: column;
     text-align: center;
+  }
+
+}
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 
 }
